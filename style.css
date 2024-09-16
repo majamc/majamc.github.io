@@ -1,0 +1,316 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #1b1b1b;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background-image: url('/photos/night_tokyo.jpg');
+    background-size: cover;
+    background-position: center 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Style for the 'Why I Love You' Section */
+.why-i-love-you {
+    background-color: #191b27;
+    padding: 50px;
+    text-align: center;
+}
+
+.why-i-love-you h2 {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Flexbox layout for the ordered list */
+.why-i-love-you ol {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap into multiple rows */
+    justify-content: center; /* Centers the columns */
+    padding: 0;
+    list-style-type: none;
+    counter-reset: list-counter;
+}
+
+.why-i-love-you li {
+    flex: 0 1 calc(50% - 20px); /* Each list item takes 50% of the width minus some spacing */
+    margin: 10px;
+    position: relative;
+    font-size: 1.5rem;
+    padding-left: 50px;
+    color: #333;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: transform 0.3s ease;
+}
+
+.why-i-love-you li:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.why-i-love-you li::before {
+    content: counter(list-counter);
+    counter-increment: list-counter;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #630303;
+    color: white;
+    font-size: 1.2rem;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+/* Add animation to list items */
+.why-i-love-you li {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modify each list item's delay */
+.why-i-love-you li:nth-child(1) {
+    --i: 1;
+}
+.why-i-love-you li:nth-child(2) {
+    --i: 
+}
+
+
+/* Add some responsiveness for mobile */
+@media (max-width: 600px) {
+    .why-i-love-you li {
+        font-size: 1.2rem;
+        padding: 15px;
+    }
+}
+
+/* Gallery Section Styling */
+.gallery-section {
+    padding: 50px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.gallery-section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+/* Gallery Grid Layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Each Gallery Item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Overlay for "View Gallery" */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease;
+}
+
+.view-text {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Hover Effects */
+.gallery-item:hover img {
+    transform: scale(1.1); /* Zoom image slightly on hover */
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1; /* Fade in overlay */
+}
+
+.gallery-item:hover .view-text {
+    opacity: 1;
+    transform: translateY(0); /* Slide "View Gallery" text up */
+}
+
+/* Parallax Section */
+.parallax {
+    height: 100vh;
+    background-image: url('/photos/mirror.JPG');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.parallax h2 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* text and picture */
+.content-section {
+    padding: 50px;
+    background-color: #ffffff;
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.section img {
+    /*max-width: 300px;*/
+    max-height: 300px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section h1 {
+    font-size: 3em;
+    color: #000000;
+    text-align: center;
+    
+}
+.section p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Time */
+.counter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust based on your layout */
+    /*background-color: #f9f9f9; /* Light background for better visibility */
+    background-image: url('/photos/cats.JPG');
+    background-size: cover;
+    background-position: center 50%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.counter-header {
+    text-align: center;
+    margin-bottom: 30px; /* Space between title and counter */
+}
+
+.counter-header h2 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2em; /* Appropriate font size for the title */
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+
+.picture-placeholder {
+    margin: 20px 0; /* Space around the image */
+}
+
+.picture-placeholder img {
+    width: 300px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 5px; /* Rounded corners */
+}
+
+.counter {
+    font-family: 'Arial', sans-serif;
+    font-size: 3em; /* Larger font size for readability */
+    color: #000000;
+    display: flex;
+    align-items: center;
+}
+
+.time {
+    display: inline-block;
+    /*margin: 0 5px; /* Space between time elements */
+}
+
+.counter .time:not(:last-child)::after {
+    content: ' ';
+    margin: 1 10px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: white;
+}
