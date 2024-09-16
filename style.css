@@ -259,7 +259,8 @@ body {
     justify-content: center;
     height: 100vh; /* Adjust based on your layout */
     /*background-color: #f9f9f9; /* Light background for better visibility */
-    background-image: url('/photos/cats.jpg');
+    /*background-image: url('/photos/cats.jpg');*/
+    background-image: url('/photos/night_tokyo.jpg');
     background-size: cover;
     background-position: center 50%;
     padding: 20px;
